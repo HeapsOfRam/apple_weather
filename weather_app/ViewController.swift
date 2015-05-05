@@ -32,28 +32,36 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func get_weather_for_city(sender: AnyObject) {
+        temperature_label.alpha = 0
+        
         let url_string = "http://api.openweathermap.org/data/2.5/weather?q=\(city_text.text)&units=\(get_proper_measurement_unit())"
         let url = NSURL(string: url_string.uri_encoded())!
-        let data = NSData(contentsOfURL: url)!
+        let data = NSData(contentsOfURL: url)
         var error : NSError?
         
-        let response : AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &error)
+        if data != nil{
+            let response : AnyObject? = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers, error: &error)
         
-        if response != nil{
-            let root = response as NSDictionary
+            if response != nil{
+                let root = response as NSDictionary
             
-            let message : AnyObject? = root.objectForKey("message")
+                let message : AnyObject? = root.objectForKey("message")
             
-            if message == nil{
-                let main = root.objectForKey("main") as NSDictionary
+                if message == nil{
+                    let main = root.objectForKey("main") as NSDictionary
             
-                let temp = (main.objectForKey("temp") as NSNumber).floatValue
+                    let temp = (main.objectForKey("temp") as NSNumber).floatValue
             
-                temperature_label.text = "\(temp)"
+                    temperature_label.text = "\(temp)"
+                }
+                else{
+                    temperature_label.text = "\(message!)"
+                }
             }
-            else{
-                temperature_label.text = "\(message!)"
-            }
+        
+            UIView.animateWithDuration(1, animations: { () -> Void in
+                self.temperature_label.alpha = 1
+                })
         }
     }
     
