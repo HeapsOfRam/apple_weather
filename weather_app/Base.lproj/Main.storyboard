@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Weather-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="weather_app" customModuleProvider="target" sceneMemberID="viewController">
@@ -120,7 +120,7 @@
                             <outletCollection property="gestureRecognizers" destination="dUe-R0-DQa" appends="YES" id="BFE-4q-Nuf"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Jlr-go-tSq"/>
+                    <tabBarItem key="tabBarItem" title="Weather" id="Jlr-go-tSq"/>
                     <connections>
                         <outlet property="city_text" destination="0Hj-Ly-JWD" id="qzV-rp-frP"/>
                         <outlet property="image_icon" destination="Vgl-X3-vgi" id="Y1q-HJ-3pc"/>
@@ -136,9 +136,28 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="963" y="-44"/>
+            <point key="canvasLocation" x="777" y="-680"/>
         </scene>
-        <!--Item-->
+        <!--Video-->
+        <scene sceneID="4wZ-nZ-5KT">
+            <objects>
+                <viewController id="Itk-93-iGo" customClass="VideoViewController" customModule="weather_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LEP-Wz-b31"/>
+                        <viewControllerLayoutGuide type="bottom" id="4vf-wj-o2e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3uT-iN-RAm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.92079028843917488" blue="0.12655730829586365" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Video" id="LR9-9Z-cWy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z6h-xY-UaI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="817" y="655"/>
+        </scene>
+        <!--Music-->
         <scene sceneID="kY6-Pt-cYN">
             <objects>
                 <viewController id="hg6-m2-h8Q" customClass="MusicViewController" customModule="weather_app" customModuleProvider="target" sceneMemberID="viewController">
@@ -187,11 +206,11 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="R9w-Jq-au2"/>
+                    <tabBarItem key="tabBarItem" title="Music" id="R9w-Jq-au2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="upl-OF-wLh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="963" y="649"/>
+            <point key="canvasLocation" x="1263" y="1"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="jfi-Zh-bDY">
@@ -206,6 +225,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="ahn-qa-PoD"/>
                         <segue destination="hg6-m2-h8Q" kind="relationship" relationship="viewControllers" id="fSB-P4-w4g"/>
+                        <segue destination="Itk-93-iGo" kind="relationship" relationship="viewControllers" id="Hug-Cg-0RH"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpo-zV-KYV" userLabel="First Responder" sceneMemberID="firstResponder"/>
