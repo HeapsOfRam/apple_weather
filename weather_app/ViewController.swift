@@ -18,6 +18,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var city_text: UITextField!
     @IBOutlet var measurement_unit: UISegmentedControl!
     @IBOutlet var temperature_label: UILabel!
+    @IBOutlet var image_icon: UIImageView!
     
     @IBAction func background_tap(sender: AnyObject) {
         remove_keyboard(self.view)
@@ -38,12 +39,34 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let url = NSURL(string: url_string.uri_encoded())!
         let data = NSData(contentsOfURL: url)
         
+        var label_text = ""
         
         if data != nil{
-        
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
                 { () -> Void in
-                    var label_text = self.set_temp_label_from_json(data!) as String
+                    let root = self.retrieve_json(data!)
+                    
+                    let message : AnyObject? = root.objectForKey("message")
+                    
+                    if message == nil{
+                        let main = root.objectForKey("main") as NSDictionary
+                        
+                        let weather = root.objectForKey("weather") as NSArray
+                        let first_weather = weather[0] as NSDictionary
+                        let icon_name = first_weather.objectForKey("icon") as String
+                        let icon_url = "http://openweathermap.org/img/w/\(icon_name).png"
+                        
+                        var image = UIImage(data: NSData(contentsOfURL: NSURL(string: icon_url)!)!)
+                        
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.image_icon.image = image
+                    })
+                        
+                        label_text = (main.objectForKey("temp") as NSNumber).stringValue
+                    }
+                    else{
+                        label_text = message! as String
+                    }
                     
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         
@@ -58,7 +81,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func set_temp_label_from_json(data : NSData) -> String
+    func retrieve_json(data : NSData) -> NSDictionary
     {
         var error : NSError?
         let response : AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &error)
@@ -66,21 +89,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         println(response)
         
         if response != nil{
-            let root = response as NSDictionary
-            
-            let message : AnyObject? = root.objectForKey("message")
-            
-            if message == nil{
-                let main = root.objectForKey("main") as NSDictionary
-                
-                return (main.objectForKey("temp") as NSNumber).stringValue
-            }
-            else{
-                return message! as String
-            }
+            return response as NSDictionary
         }
         
-        return ""
+        return response as NSDictionary
+        
+        //return nil
     }
     
     func get_proper_measurement_unit() -> String{

@@ -59,15 +59,24 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vgl-X3-vgi">
+                                <rect key="frame" x="208" y="245" width="240" height="215"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="jc2-lx-zqo"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="TYD-JT-JGK" firstAttribute="top" secondItem="0Hj-Ly-JWD" secondAttribute="bottom" constant="25" id="1U6-hb-3F7"/>
                             <constraint firstItem="Qc4-Jz-w0x" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="13" id="23O-5r-D0e"/>
+                            <constraint firstItem="Vgl-X3-vgi" firstAttribute="top" secondItem="wKj-nH-hxT" secondAttribute="bottom" constant="48" id="2aA-3A-M9y"/>
+                            <constraint firstItem="Vgl-X3-vgi" firstAttribute="centerX" secondItem="wKj-nH-hxT" secondAttribute="centerX" id="4Kr-nn-tAD"/>
                             <constraint firstItem="Qc4-Jz-w0x" firstAttribute="leading" secondItem="TYD-JT-JGK" secondAttribute="leading" id="4Sn-Vk-P5j"/>
                             <constraint firstItem="Qc4-Jz-w0x" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="5s5-Vk-IRb"/>
                             <constraint firstItem="0Hj-Ly-JWD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="9" id="8tH-je-KmJ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Vgl-X3-vgi" secondAttribute="bottom" constant="140" id="Alu-ep-nq4"/>
                             <constraint firstItem="TYD-JT-JGK" firstAttribute="top" secondItem="qxJ-AJ-jgq" secondAttribute="top" id="ChR-Ip-Rfa"/>
                             <constraint firstItem="qxJ-AJ-jgq" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="FGy-A1-odN"/>
                             <constraint firstItem="wKj-nH-hxT" firstAttribute="top" secondItem="0Hj-Ly-JWD" secondAttribute="bottom" constant="78" id="dhe-vW-b39"/>
@@ -83,6 +92,7 @@
                     </view>
                     <connections>
                         <outlet property="city_text" destination="0Hj-Ly-JWD" id="qzV-rp-frP"/>
+                        <outlet property="image_icon" destination="Vgl-X3-vgi" id="Y1q-HJ-3pc"/>
                         <outlet property="measurement_unit" destination="TYD-JT-JGK" id="X49-bc-jDh"/>
                         <outlet property="temperature_label" destination="wKj-nH-hxT" id="AUJ-Ve-k5n"/>
                     </connections>
