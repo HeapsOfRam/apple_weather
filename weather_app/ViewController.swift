@@ -8,7 +8,18 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
+    
+    @IBAction func background_tap(sender: AnyObject) {
+        for var i=0; i<self.view.subviews.count; i+=1 {
+            self.view.subviews[i].resignFirstResponder()
+        }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
