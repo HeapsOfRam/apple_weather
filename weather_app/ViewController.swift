@@ -39,8 +39,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let url = NSURL(string: url_string.uri_encoded())!
         let data = NSData(contentsOfURL: url)
         
-        var label_text = ""
-        
         if data != nil{
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
                 { () -> Void in
@@ -59,22 +57,22 @@ class ViewController: UIViewController, UITextFieldDelegate {
                         var image = UIImage(data: NSData(contentsOfURL: NSURL(string: icon_url)!)!)
                         
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        self.image_icon.image = image
-                    })
-                        
-                        label_text = (main.objectForKey("temp") as NSNumber).stringValue
-                    }
-                    else{
-                        label_text = message! as String
-                    }
-                    
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        
-                        UIView.animateWithDuration(1, animations: { () -> Void in
-                            self.temperature_label.text = label_text
-                            self.temperature_label.alpha = 1
+                            UIView.animateWithDuration(1, animations: { () -> Void in
+                                self.temperature_label.text = (main.objectForKey("temp") as NSNumber).stringValue
+                                self.temperature_label.alpha = 1
+                            })
                         })
-                    })
+                        
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.image_icon.image = image
+                        })
+                    }else{
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in                            UIView.animateWithDuration(1, animations: { () -> Void in
+                                self.temperature_label.text = message! as? String
+                                self.temperature_label.alpha = 1
+                            })
+                        })
+                    }
             })
             
             
@@ -86,15 +84,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         var error : NSError?
         let response : AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &error)
         
-        println(response)
-        
-        if response != nil{
-            return response as NSDictionary
-        }
-        
         return response as NSDictionary
-        
-        //return nil
     }
     
     func get_proper_measurement_unit() -> String{
