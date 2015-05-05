@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gw2-Qg-u1g">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="weather_app" customModuleProvider="target" sceneMemberID="viewController">
@@ -82,6 +82,15 @@
                                     <action selector="locate_me:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2m3-oP-BMn"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQz-Kt-fm3">
+                                <rect key="frame" x="291" y="486" width="60" height="30"/>
+                                <state key="normal" title="Location">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="locate_me:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OOH-3d-yy2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -94,6 +103,7 @@
                             <constraint firstItem="TYD-JT-JGK" firstAttribute="top" secondItem="qxJ-AJ-jgq" secondAttribute="top" id="EbC-je-wHn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Vgl-X3-vgi" secondAttribute="trailing" constant="10" id="G2v-1d-GLN"/>
                             <constraint firstItem="wKj-nH-hxT" firstAttribute="centerX" secondItem="TYD-JT-JGK" secondAttribute="centerX" id="Peq-5q-Oyi"/>
+                            <constraint firstItem="LQz-Kt-fm3" firstAttribute="leading" secondItem="Qii-bg-8Pc" secondAttribute="trailing" constant="20" id="U34-eS-yDD"/>
                             <constraint firstItem="wKj-nH-hxT" firstAttribute="top" secondItem="TYD-JT-JGK" secondAttribute="bottom" constant="31" id="W8U-Rm-eGG"/>
                             <constraint firstItem="wKj-nH-hxT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="43" id="dKb-ae-pkM"/>
                             <constraint firstItem="7j8-FP-htJ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="iDb-58-Lfl"/>
@@ -101,6 +111,7 @@
                             <constraint firstItem="0Hj-Ly-JWD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="9" id="s8s-Wz-tln"/>
                             <constraint firstItem="0Hj-Ly-JWD" firstAttribute="leading" secondItem="Qc4-Jz-w0x" secondAttribute="trailing" constant="10" id="scb-gJ-Dbd"/>
                             <constraint firstItem="Qc4-Jz-w0x" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="sg4-Pu-YG0"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LQz-Kt-fm3" secondAttribute="bottom" constant="35" id="ucG-LL-N5r"/>
                             <constraint firstItem="Qii-bg-8Pc" firstAttribute="leading" secondItem="TYD-JT-JGK" secondAttribute="leading" id="unY-vp-8et"/>
                             <constraint firstItem="7j8-FP-htJ" firstAttribute="bottom" secondItem="Qii-bg-8Pc" secondAttribute="bottom" id="xeP-ee-yDp"/>
                             <constraint firstItem="Qc4-Jz-w0x" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="13" id="yYr-Af-omq"/>
@@ -109,6 +120,7 @@
                             <outletCollection property="gestureRecognizers" destination="dUe-R0-DQa" appends="YES" id="BFE-4q-Nuf"/>
                         </connections>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Jlr-go-tSq"/>
                     <connections>
                         <outlet property="city_text" destination="0Hj-Ly-JWD" id="qzV-rp-frP"/>
                         <outlet property="image_icon" destination="Vgl-X3-vgi" id="Y1q-HJ-3pc"/>
@@ -124,6 +136,81 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="963" y="-44"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="kY6-Pt-cYN">
+            <objects>
+                <viewController id="hg6-m2-h8Q" customClass="MusicViewController" customModule="weather_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eQC-MA-GyF"/>
+                        <viewControllerLayoutGuide type="bottom" id="evS-Wb-xrZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mz9-e0-1oW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ViU-O6-52O">
+                                <rect key="frame" x="277" y="109" width="30" height="30"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="play_music:" destination="hg6-m2-h8Q" eventType="touchUpInside" id="WIM-Vi-YXX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ygk-zD-5SY">
+                                <rect key="frame" x="277" y="182" width="33" height="30"/>
+                                <state key="normal" title="Stop">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stop_music:" destination="hg6-m2-h8Q" eventType="touchUpInside" id="n7f-ei-EdI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.20029164026325907" blue="0.89442878899727418" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ygk-zD-5SY" firstAttribute="top" secondItem="ViU-O6-52O" secondAttribute="bottom" constant="43" id="5zw-Fc-oQv"/>
+                            <constraint firstAttribute="centerX" secondItem="Ygk-zD-5SY" secondAttribute="centerX" constant="6.5" id="JfO-z4-2Tx"/>
+                            <constraint firstItem="ViU-O6-52O" firstAttribute="top" secondItem="eQC-MA-GyF" secondAttribute="bottom" constant="89" id="Yyu-wi-9CY"/>
+                            <constraint firstAttribute="centerX" secondItem="ViU-O6-52O" secondAttribute="centerX" constant="8" id="ag3-a5-itb"/>
+                            <constraint firstItem="ViU-O6-52O" firstAttribute="leading" secondItem="mz9-e0-1oW" secondAttribute="leading" constant="277" id="n8d-X8-cfK"/>
+                            <constraint firstItem="Ygk-zD-5SY" firstAttribute="top" secondItem="ViU-O6-52O" secondAttribute="bottom" constant="43" id="nIz-KG-tTn"/>
+                            <constraint firstItem="Ygk-zD-5SY" firstAttribute="leading" secondItem="ViU-O6-52O" secondAttribute="leading" id="qUN-GB-EM0"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="n8d-X8-cfK"/>
+                                <exclude reference="nIz-KG-tTn"/>
+                                <exclude reference="qUN-GB-EM0"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="R9w-Jq-au2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="upl-OF-wLh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="963" y="649"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="jfi-Zh-bDY">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="gw2-Qg-u1g" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="SG3-hA-zRx">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="ahn-qa-PoD"/>
+                        <segue destination="hg6-m2-h8Q" kind="relationship" relationship="viewControllers" id="fSB-P4-w4g"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dpo-zV-KYV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="136"/>
         </scene>
     </scenes>
 </document>

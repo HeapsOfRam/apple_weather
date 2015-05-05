@@ -15,6 +15,9 @@
 		2141362D1AF8FCD200BA5F75 /* weather_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2141362C1AF8FCD200BA5F75 /* weather_appTests.swift */; };
 		214136371AF941A800BA5F75 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214136361AF941A800BA5F75 /* CoreLocation.framework */; };
 		2141363A1AF9586100BA5F75 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214136391AF9586100BA5F75 /* MapKit.framework */; };
+		2141363C1AF95B5F00BA5F75 /* weather.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2141363B1AF95B5F00BA5F75 /* weather.mp3 */; };
+		2141363F1AF95CEA00BA5F75 /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2141363E1AF95CEA00BA5F75 /* MusicViewController.swift */; };
+		214136411AF95D5E00BA5F75 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214136401AF95D5E00BA5F75 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,9 @@
 		2141362C1AF8FCD200BA5F75 /* weather_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weather_appTests.swift; sourceTree = "<group>"; };
 		214136361AF941A800BA5F75 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		214136391AF9586100BA5F75 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2141363B1AF95B5F00BA5F75 /* weather.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = weather.mp3; sourceTree = "<group>"; };
+		2141363E1AF95CEA00BA5F75 /* MusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicViewController.swift; sourceTree = "<group>"; };
+		214136401AF95D5E00BA5F75 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				214136411AF95D5E00BA5F75 /* AVFoundation.framework in Frameworks */,
 				2141363A1AF9586100BA5F75 /* MapKit.framework in Frameworks */,
 				214136371AF941A800BA5F75 /* CoreLocation.framework in Frameworks */,
 			);
@@ -65,6 +72,7 @@
 		214136081AF8FCD200BA5F75 = {
 			isa = PBXGroup;
 			children = (
+				2141363D1AF95B7200BA5F75 /* assets */,
 				214136381AF941D200BA5F75 /* Frameworks */,
 				214136131AF8FCD200BA5F75 /* weather_app */,
 				214136291AF8FCD200BA5F75 /* weather_appTests */,
@@ -87,6 +95,7 @@
 				214136161AF8FCD200BA5F75 /* AppDelegate.swift */,
 				214136181AF8FCD200BA5F75 /* ViewController.swift */,
 				2141361A1AF8FCD200BA5F75 /* Main.storyboard */,
+				2141363E1AF95CEA00BA5F75 /* MusicViewController.swift */,
 				2141361D1AF8FCD200BA5F75 /* Images.xcassets */,
 				2141361F1AF8FCD200BA5F75 /* LaunchScreen.xib */,
 				214136141AF8FCD200BA5F75 /* Supporting Files */,
@@ -122,10 +131,19 @@
 		214136381AF941D200BA5F75 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				214136401AF95D5E00BA5F75 /* AVFoundation.framework */,
 				214136391AF9586100BA5F75 /* MapKit.framework */,
 				214136361AF941A800BA5F75 /* CoreLocation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2141363D1AF95B7200BA5F75 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				2141363B1AF95B5F00BA5F75 /* weather.mp3 */,
+			);
+			name = assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +229,7 @@
 				2141361C1AF8FCD200BA5F75 /* Main.storyboard in Resources */,
 				214136211AF8FCD200BA5F75 /* LaunchScreen.xib in Resources */,
 				2141361E1AF8FCD200BA5F75 /* Images.xcassets in Resources */,
+				2141363C1AF95B5F00BA5F75 /* weather.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2141363F1AF95CEA00BA5F75 /* MusicViewController.swift in Sources */,
 				214136191AF8FCD200BA5F75 /* ViewController.swift in Sources */,
 				214136171AF8FCD200BA5F75 /* AppDelegate.swift in Sources */,
 			);
