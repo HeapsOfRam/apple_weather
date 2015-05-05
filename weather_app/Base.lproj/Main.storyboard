@@ -17,26 +17,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Hj-Ly-JWD">
-                                <rect key="frame" x="16" y="50" width="568" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a city name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Hj-Ly-JWD">
+                                <rect key="frame" x="72" y="29" width="512" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Fo4-p7-qau"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qc4-Jz-w0x">
+                                <rect key="frame" x="31" y="33" width="31" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxJ-AJ-jgq">
+                                <rect key="frame" x="498" y="67" width="86" height="30"/>
+                                <state key="normal" title="Get Weather">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="get_weather_for_city:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K0F-q7-ui1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="0Hj-Ly-JWD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="JwO-EF-Ar2"/>
-                            <constraint firstItem="0Hj-Ly-JWD" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="OHg-ut-rOB"/>
-                            <constraint firstItem="0Hj-Ly-JWD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="jnB-Lb-19V"/>
+                            <constraint firstItem="0Hj-Ly-JWD" firstAttribute="leading" secondItem="Qc4-Jz-w0x" secondAttribute="trailing" constant="10" id="FxN-I3-aBh"/>
+                            <constraint firstItem="Qc4-Jz-w0x" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="13" id="Srr-eB-6cV"/>
+                            <constraint firstItem="qxJ-AJ-jgq" firstAttribute="top" secondItem="0Hj-Ly-JWD" secondAttribute="bottom" constant="8" symbolic="YES" id="brc-zX-dpM"/>
+                            <constraint firstItem="Qc4-Jz-w0x" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="hwF-EY-aLb"/>
+                            <constraint firstItem="0Hj-Ly-JWD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="9" id="mMo-5Z-mcw"/>
+                            <constraint firstItem="qxJ-AJ-jgq" firstAttribute="trailing" secondItem="0Hj-Ly-JWD" secondAttribute="trailing" id="nw0-lB-Njg"/>
+                            <constraint firstItem="0Hj-Ly-JWD" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="yLM-Zw-jSK"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="dUe-R0-DQa" appends="YES" id="BFE-4q-Nuf"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="city_text" destination="0Hj-Ly-JWD" id="qzV-rp-frP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="dUe-R0-DQa">
