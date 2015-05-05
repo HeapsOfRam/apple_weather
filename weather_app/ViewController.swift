@@ -32,37 +32,55 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func get_weather_for_city(sender: AnyObject) {
-        temperature_label.alpha = 0
+        temperature_label.alpha = 1
         
         let url_string = "http://api.openweathermap.org/data/2.5/weather?q=\(city_text.text)&units=\(get_proper_measurement_unit())"
         let url = NSURL(string: url_string.uri_encoded())!
         let data = NSData(contentsOfURL: url)
-        var error : NSError?
+        
         
         if data != nil{
-            let response : AnyObject? = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers, error: &error)
         
-            if response != nil{
-                let root = response as NSDictionary
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
+                { () -> Void in
+                    var label_text = self.set_temp_label_from_json(data!) as String
+                    
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        
+                        UIView.animateWithDuration(1, animations: { () -> Void in
+                            self.temperature_label.text = label_text
+                            self.temperature_label.alpha = 1
+                        })
+                    })
+            })
             
-                let message : AnyObject? = root.objectForKey("message")
             
-                if message == nil{
-                    let main = root.objectForKey("main") as NSDictionary
-            
-                    let temp = (main.objectForKey("temp") as NSNumber).floatValue
-            
-                    temperature_label.text = "\(temp)"
-                }
-                else{
-                    temperature_label.text = "\(message!)"
-                }
-            }
-        
-            UIView.animateWithDuration(1, animations: { () -> Void in
-                self.temperature_label.alpha = 1
-                })
         }
+    }
+    
+    func set_temp_label_from_json(data : NSData) -> String
+    {
+        var error : NSError?
+        let response : AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &error)
+        
+        println(response)
+        
+        if response != nil{
+            let root = response as NSDictionary
+            
+            let message : AnyObject? = root.objectForKey("message")
+            
+            if message == nil{
+                let main = root.objectForKey("main") as NSDictionary
+                
+                return (main.objectForKey("temp") as NSNumber).stringValue
+            }
+            else{
+                return message! as String
+            }
+        }
+        
+        return ""
     }
     
     func get_proper_measurement_unit() -> String{
