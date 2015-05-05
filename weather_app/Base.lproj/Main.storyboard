@@ -32,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxJ-AJ-jgq">
-                                <rect key="frame" x="498" y="67" width="86" height="30"/>
+                                <rect key="frame" x="498" y="84" width="86" height="30"/>
                                 <state key="normal" title="Get Weather">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -40,13 +40,28 @@
                                     <action selector="get_weather_for_city:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K0F-q7-ui1"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TYD-JT-JGK">
+                                <rect key="frame" x="31" y="84" width="157" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="157" id="gEd-6r-OWD"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Celsius"/>
+                                    <segment title="Fahrenheit"/>
+                                </segments>
+                                <connections>
+                                    <action selector="unit_has_changed:" destination="BYZ-38-t0r" eventType="valueChanged" id="FqX-hK-gXY"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="0Hj-Ly-JWD" firstAttribute="leading" secondItem="Qc4-Jz-w0x" secondAttribute="trailing" constant="10" id="FxN-I3-aBh"/>
                             <constraint firstItem="Qc4-Jz-w0x" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="13" id="Srr-eB-6cV"/>
-                            <constraint firstItem="qxJ-AJ-jgq" firstAttribute="top" secondItem="0Hj-Ly-JWD" secondAttribute="bottom" constant="8" symbolic="YES" id="brc-zX-dpM"/>
+                            <constraint firstItem="qxJ-AJ-jgq" firstAttribute="top" secondItem="0Hj-Ly-JWD" secondAttribute="bottom" constant="25" id="brc-zX-dpM"/>
+                            <constraint firstItem="TYD-JT-JGK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="dAs-Kr-fXt"/>
+                            <constraint firstItem="TYD-JT-JGK" firstAttribute="top" secondItem="0Hj-Ly-JWD" secondAttribute="bottom" constant="25" id="dRP-Id-Ntf"/>
                             <constraint firstItem="Qc4-Jz-w0x" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="hwF-EY-aLb"/>
                             <constraint firstItem="0Hj-Ly-JWD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="9" id="mMo-5Z-mcw"/>
                             <constraint firstItem="qxJ-AJ-jgq" firstAttribute="trailing" secondItem="0Hj-Ly-JWD" secondAttribute="trailing" id="nw0-lB-Njg"/>
@@ -58,6 +73,7 @@
                     </view>
                     <connections>
                         <outlet property="city_text" destination="0Hj-Ly-JWD" id="qzV-rp-frP"/>
+                        <outlet property="measurement_unit" destination="TYD-JT-JGK" id="X49-bc-jDh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

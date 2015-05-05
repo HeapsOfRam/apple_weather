@@ -16,17 +16,30 @@ extension String{
 
 class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var city_text: UITextField!
+    @IBOutlet var measurement_unit: UISegmentedControl!
     
     @IBAction func background_tap(sender: AnyObject) {
         remove_keyboard(self.view)
     }
     
+    @IBAction func unit_has_changed(sender: AnyObject) {
+        get_weather_for_city(sender)
+        
+        let storage = NSUserDefaults.standardUserDefaults()
+        storage.setInteger(measurement_unit.selectedSegmentIndex, forKey: "unit")
+        storage.synchronize()
+    }
+    
     @IBAction func get_weather_for_city(sender: AnyObject) {
-        let url_string = "http://api.openweathermap.org/data/2.5/weather?q=\(city_text.text)&units=imperial"
+        let url_string = "http://api.openweathermap.org/data/2.5/weather?q=\(city_text.text)&units=\(get_proper_measurement_unit())"
         let url = NSURL(string: url_string.uri_encoded())!
         let json = NSString(contentsOfURL: url, encoding: NSUTF8StringEncoding, error: nil)
         
         println(json)
+    }
+    
+    func get_proper_measurement_unit() -> String{
+        return measurement_unit.selectedSegmentIndex==0 ? "metric" : "imperial"
     }
     
     func remove_keyboard(container: UIView){
@@ -46,7 +59,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let storage = NSUserDefaults.standardUserDefaults()
+        let unit = storage.integerForKey("unit")
+        measurement_unit.selectedSegmentIndex = unit
     }
 
     override func didReceiveMemoryWarning() {
