@@ -41,11 +41,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         if response != nil{
             let root = response as NSDictionary
-            let main = root.objectForKey("main") as NSDictionary
             
-            let temp = (main.objectForKey("temp") as NSNumber).floatValue
+            let message : AnyObject? = root.objectForKey("message")
             
-            temperature_label.text = "\(temp)"
+            if message == nil{
+                let main = root.objectForKey("main") as NSDictionary
+            
+                let temp = (main.objectForKey("temp") as NSNumber).floatValue
+            
+                temperature_label.text = "\(temp)"
+            }
+            else{
+                temperature_label.text = "\(message!)"
+            }
         }
     }
     
