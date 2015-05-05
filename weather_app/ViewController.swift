@@ -17,6 +17,7 @@ extension String{
 class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var city_text: UITextField!
     @IBOutlet var measurement_unit: UISegmentedControl!
+    @IBOutlet var temperature_label: UILabel!
     
     @IBAction func background_tap(sender: AnyObject) {
         remove_keyboard(self.view)
@@ -33,9 +34,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func get_weather_for_city(sender: AnyObject) {
         let url_string = "http://api.openweathermap.org/data/2.5/weather?q=\(city_text.text)&units=\(get_proper_measurement_unit())"
         let url = NSURL(string: url_string.uri_encoded())!
-        let json = NSString(contentsOfURL: url, encoding: NSUTF8StringEncoding, error: nil)
+        let data = NSData(contentsOfURL: url)!
+        var error : NSError?
         
-        println(json)
+        let response : AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &error)
+        
+        if response != nil{
+            let root = response as NSDictionary
+            let main = root.objectForKey("main") as NSDictionary
+            
+            let temp = (main.objectForKey("temp") as NSNumber).floatValue
+            
+            temperature_label.text = "\(temp)"
+        }
     }
     
     func get_proper_measurement_unit() -> String{

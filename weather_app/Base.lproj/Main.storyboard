@@ -42,9 +42,6 @@
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TYD-JT-JGK">
                                 <rect key="frame" x="31" y="84" width="157" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="157" id="gEd-6r-OWD"/>
-                                </constraints>
                                 <segments>
                                     <segment title="Celsius"/>
                                     <segment title="Fahrenheit"/>
@@ -53,19 +50,32 @@
                                     <action selector="unit_has_changed:" destination="BYZ-38-t0r" eventType="valueChanged" id="FqX-hK-gXY"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wKj-nH-hxT">
+                                <rect key="frame" x="278" y="137" width="100" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="nJr-oU-Sk5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="0Hj-Ly-JWD" firstAttribute="leading" secondItem="Qc4-Jz-w0x" secondAttribute="trailing" constant="10" id="FxN-I3-aBh"/>
-                            <constraint firstItem="Qc4-Jz-w0x" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="13" id="Srr-eB-6cV"/>
-                            <constraint firstItem="qxJ-AJ-jgq" firstAttribute="top" secondItem="0Hj-Ly-JWD" secondAttribute="bottom" constant="25" id="brc-zX-dpM"/>
-                            <constraint firstItem="TYD-JT-JGK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="dAs-Kr-fXt"/>
-                            <constraint firstItem="TYD-JT-JGK" firstAttribute="top" secondItem="0Hj-Ly-JWD" secondAttribute="bottom" constant="25" id="dRP-Id-Ntf"/>
-                            <constraint firstItem="Qc4-Jz-w0x" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="hwF-EY-aLb"/>
-                            <constraint firstItem="0Hj-Ly-JWD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="9" id="mMo-5Z-mcw"/>
-                            <constraint firstItem="qxJ-AJ-jgq" firstAttribute="trailing" secondItem="0Hj-Ly-JWD" secondAttribute="trailing" id="nw0-lB-Njg"/>
-                            <constraint firstItem="0Hj-Ly-JWD" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="yLM-Zw-jSK"/>
+                            <constraint firstItem="TYD-JT-JGK" firstAttribute="top" secondItem="0Hj-Ly-JWD" secondAttribute="bottom" constant="25" id="1U6-hb-3F7"/>
+                            <constraint firstItem="Qc4-Jz-w0x" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="13" id="23O-5r-D0e"/>
+                            <constraint firstItem="Qc4-Jz-w0x" firstAttribute="leading" secondItem="TYD-JT-JGK" secondAttribute="leading" id="4Sn-Vk-P5j"/>
+                            <constraint firstItem="Qc4-Jz-w0x" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="5s5-Vk-IRb"/>
+                            <constraint firstItem="0Hj-Ly-JWD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="9" id="8tH-je-KmJ"/>
+                            <constraint firstItem="TYD-JT-JGK" firstAttribute="top" secondItem="qxJ-AJ-jgq" secondAttribute="top" id="ChR-Ip-Rfa"/>
+                            <constraint firstItem="qxJ-AJ-jgq" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="FGy-A1-odN"/>
+                            <constraint firstItem="wKj-nH-hxT" firstAttribute="top" secondItem="0Hj-Ly-JWD" secondAttribute="bottom" constant="78" id="dhe-vW-b39"/>
+                            <constraint firstItem="0Hj-Ly-JWD" firstAttribute="trailing" secondItem="qxJ-AJ-jgq" secondAttribute="trailing" id="g55-5K-cdF"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wKj-nH-hxT" secondAttribute="bottom" constant="403" id="gO0-km-wzy"/>
+                            <constraint firstItem="0Hj-Ly-JWD" firstAttribute="leading" secondItem="Qc4-Jz-w0x" secondAttribute="trailing" constant="10" id="nWO-2M-22e"/>
+                            <constraint firstItem="TYD-JT-JGK" firstAttribute="top" secondItem="Qc4-Jz-w0x" secondAttribute="bottom" constant="30" id="sSI-Gm-0wX"/>
+                            <constraint firstItem="0Hj-Ly-JWD" firstAttribute="centerX" secondItem="wKj-nH-hxT" secondAttribute="centerX" id="sfm-Kc-Cf9"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="dUe-R0-DQa" appends="YES" id="BFE-4q-Nuf"/>
@@ -74,6 +84,7 @@
                     <connections>
                         <outlet property="city_text" destination="0Hj-Ly-JWD" id="qzV-rp-frP"/>
                         <outlet property="measurement_unit" destination="TYD-JT-JGK" id="X49-bc-jDh"/>
+                        <outlet property="temperature_label" destination="wKj-nH-hxT" id="AUJ-Ve-k5n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
